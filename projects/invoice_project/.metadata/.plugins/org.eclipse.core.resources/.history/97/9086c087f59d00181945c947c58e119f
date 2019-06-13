@@ -1,0 +1,8 @@
+package com.example.invoice.model;
+
+public class Inventory {
+	private String productName;
+	private Long price;
+	private int quantity;
+	private Long tax;
+}

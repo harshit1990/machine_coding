@@ -1,0 +1,101 @@
+package com.example.invoice.model;
+
+public class Inventory {
+	private String productName;
+	private double price;
+	private int quantity;
+	private long tax = 0;
+	private long totalPrice = 0;
+	
+	public Inventory(String productName, double price, int quantity, boolean isMedicalProd) {
+		super();
+		this.productName = productName;
+		this.price = price;
+		this.quantity = quantity;
+		this.isMedicalProd = isMedicalProd;
+	}
+
+	private boolean isMedicalProd = false;
+
+	public Inventory(String productName, double price, int quantity, Long tax, Long totalPrice) {
+		super();
+		this.productName = productName;
+		this.price = price;
+		this.quantity = quantity;
+		this.tax = tax;
+		this.totalPrice = totalPrice;
+	}
+
+	public boolean isMedicalProd() {
+		return isMedicalProd;
+	}
+
+	public void setMedicalProd(boolean isMedicalProd) {
+		this.isMedicalProd = isMedicalProd;
+	}
+
+	public void setTax(long tax) {
+		this.tax = tax;
+	}
+
+	public void setTotalPrice(long totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public Inventory(String productName, double price, int quantity) {
+		super();
+		this.productName = productName;
+		this.price = price;
+		this.quantity = quantity;
+	}
+
+	@Override
+	public String toString() {
+		return "Inventory [productName=" + productName + ", price=" + price + ", quantity=" + quantity + ", tax=" + tax
+				+ ", totalPrice=" + totalPrice + "]";
+	}
+
+	public Inventory() {
+
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public Long getTax() {
+		return tax;
+	}
+
+	public void setTax(Long tax) {
+		this.tax = tax;
+	}
+
+	public Long getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Long totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+}

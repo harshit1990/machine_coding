@@ -1,0 +1,57 @@
+package com.example.invoice;
+
+import java.util.HashMap;
+
+import com.example.invoice.model.Inventory;
+
+public class InvoiceImpl implements Invoice{
+	private int roi = 20;
+	@Override
+	public void start() {
+		HashMap<Integer, Inventory> map = new HashMap<Integer, Inventory>();
+		System.out.print("\n----------------------Start test Case1------------------------------\n");
+		for(int i=0;i< 3;i++) {
+			if(i==0) {
+				map.put(i, new Inventory("wine", 20.0, 1,false));
+			}else if(i==1) {
+				map.put(i, new Inventory("headache pills", 4.0, 2,true));
+			}else if(i==2) {
+				map.put(i, new Inventory("pens", 10.0, 1,false));
+			}
+		}
+		System.out.print(map.toString());
+		calculateTax(map);
+		
+	}
+	
+	
+	private void calculateTax(HashMap<Integer, Inventory> map) {
+		int length =map.size();
+		double result=0;
+		if(length==0)
+			System.out.println("No Data for invoice.Please input data");
+		for(int i=0;i<length;i++) {
+			double totalTax=0;
+			Inventory calculateTaxation = map.get(i);
+			if(!calculateTaxation.isMedicalProd()) {
+				double price = calculateTaxation.getPrice();
+				double tax =calculateProductTax(price);
+				totalTax = price + tax;
+				result+=totalTax;
+			}
+		}
+		
+		System.out.println("Total of invoice with tax:" + result);
+		
+	}
+
+
+	private double calculateProductTax(double price) {
+		double result =  ((price * 20)/100);
+		System.out.println(result);
+		return result;
+	}
+	
+	
+
+}

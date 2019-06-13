@@ -1,0 +1,61 @@
+package com.example.invoice;
+
+import java.util.HashMap;
+
+import com.example.invoice.model.Inventory;
+
+public class InvoiceImpl implements Invoice {
+	private int roi = 20;
+
+	@Override
+	public void start() {
+		HashMap<Integer, Inventory> map = new HashMap<Integer, Inventory>(); ;
+			System.out.print("\n----------------------Start test Case1------------------------------\n");
+			for (int i = 0; i < 3; i++) {
+				if (i == 0) {
+					map.put(i, new Inventory("wine", 20.0, 1, false));
+				} else if (i == 1) {
+					map.put(i, new Inventory("headache pills", 4.0, 2, true));
+				} else if (i == 2) {
+					map.put(i, new Inventory("pens", 10.0, 1, false));
+				}
+			}
+			calculateTax(map);
+	}
+
+	private void calculateTax(HashMap<Integer, Inventory> map) {
+		int length = map.size();
+		double result = 0;
+		double totalTax = 0;
+		if (length == 0)
+			System.out.println("No Data for invoice.Please input data");
+		for (int i = 0; i < length; i++) {
+			double totalPrice = 0;
+			double tax = 0;
+			Inventory calculateTaxation = map.get(i);
+			if (!calculateTaxation.isMedicalProd()) {
+				double price = calculateTaxation.getPrice();
+				int quantity = calculateTaxation.getQuantity();
+				double newPrice = price * quantity;
+				tax = calculateProductTax(newPrice);
+				totalTax += tax;
+				totalPrice = price + tax;
+				System.out.println(quantity + " " + calculateTaxation.getProductName() + ":" + totalPrice);
+				result += totalPrice;
+			} else {
+				totalPrice = calculateTaxation.getPrice() + tax;
+				System.out.println(calculateTaxation.getQuantity() + " " + calculateTaxation.getProductName() + ":" + totalPrice);
+				result += totalPrice;
+			}
+		}
+		System.out.println("Sale tax:" + totalTax);
+		System.out.println("Total of invoice with tax:" + result);
+
+	}
+
+	private double calculateProductTax(double price) {
+		double result = ((price * roi) / 100);
+		return result;
+	}
+
+}

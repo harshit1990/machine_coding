@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.example.invoice.Invoice"/>
+<fullyQualifiedTypeName name="com.example.invoice.InvoiceImpl"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.example.invoice.SalesInvoice"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.example.invoice.model.Inventory"/>
+</qualifiedTypeNameHistroy>

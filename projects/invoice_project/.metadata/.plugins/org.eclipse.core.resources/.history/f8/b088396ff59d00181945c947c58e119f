@@ -1,0 +1,5 @@
+package com.example.invoice.model;
+
+public class Inventory {
+
+}

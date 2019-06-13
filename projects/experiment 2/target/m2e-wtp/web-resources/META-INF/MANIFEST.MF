@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: experiment
+Implementation-Version: 1.0.2.RELEASE
+Built-By: harshitmishra
+Implementation-Vendor-Id: com.package
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/experiment
+Created-By: Maven Integration for Eclipse
+Main-Class: com.ebix.imt.IMTApplication
+
